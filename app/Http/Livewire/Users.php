@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Users extends Component
 {
-    public $users, $name, $email, $user_id;
+    public $users, $name, $email, $user_id, $password, $details;
     public $isOpen = 0;
 
     public function render()
@@ -32,7 +32,8 @@ class Users extends Component
         $this->isOpen = false;
     }
 
-    private function resetInputFields(){
+    private function resetInputFields()
+    {
         $this->name = '';
         $this->email = '';
         $this->user_id = '';
@@ -43,17 +44,32 @@ class Users extends Component
         $this->validate([
             'name' => 'required',
             'email' => 'required',
+            'password' => 'required',
         ]);
 
         User::updateOrCreate(['id' => $this->user_id], [
             'name' => $this->name,
             'email' => $this->email,
+            'password' => bcrypt($this->password),
         ]);
 
-        session()->flash('message',
-            $this->user_id ? 'User Updated Successfully.' : 'User Created Successfully.');
-            $this->closeModal();
-            $this->resetInputFields()();
+        session()->flash(
+            'message',
+            $this->user_id ? 'User Updated Successfully.' : 'User Created Successfully.'
+        );
+        $this->closeModal();
+        $this->resetInputFields();
+    }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        $this->user_id = $id;
+        $this->name = $user->name;
+        $this->email = $user->email;
+        $this->details = $user->detail;
+
+        $this->openModal();
     }
 
     public function delete($id)

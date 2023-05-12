@@ -35,6 +35,7 @@
                         <td class="border px-4 py-2">{{ $user->id }}</td>
                         <td class="border px-4 py-2">{{ $user->name }}</td>
                         <td class="border px-4 py-2">{{ $user->email }}</td>
+                        <td class="border px-4 py-2"></td>
                         <td class="border px-4 py-2 text-center">
                         <button wire:click="edit({{ $user->id }})" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-3 rounded">Edit</button>
                             <button wire:click="delete({{ $user->id }})" class="bg-red-500 hover:bg-red-700 text-white py-1 px-3 rounded">Delete</button>
