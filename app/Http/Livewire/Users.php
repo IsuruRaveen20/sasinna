@@ -31,4 +31,10 @@ class Users extends Component
     {
         $this->isOpen = false;
     }
+
+    private function resetInputFields(){
+        $this->name = '';
+        $this->email = '';
+        $this->user_id = '';
+    }
 }
