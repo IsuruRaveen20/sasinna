@@ -7,11 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Laravel 9 JetStream Livewire User CRUD with Spatie
+## Sasinna - Laravel 9 JetStream Livewire User CRUD with Spatie
 
 
 ## Screenshots
+![Alt Text](./screenshots/AllTable.png)
+
+![Alt Text](./screenshots/success.png)
+
 ![Alt Text](./screenshots/AddUser.png)
+
+
 <!-- ## Learning Laravel
 
 
