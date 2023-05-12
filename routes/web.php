@@ -28,5 +28,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-// Route::get('users', Users::class)->middleware('auth');
+
+//User Route
 Route::get('users', Users::class)->middleware('auth')->name('users');
+// Route::get('users', Users::class)->middleware('auth');
