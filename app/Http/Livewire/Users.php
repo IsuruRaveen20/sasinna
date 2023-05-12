@@ -15,4 +15,10 @@ class Users extends Component
         $this->users = User::all();
         return view('livewire.users');
     }
+
+    public function create()
+    {
+        $this->resetInputFields();
+        $this->openModal();
+    }
 }
