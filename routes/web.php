@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Http\Livewire\Users;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +28,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('users', User::class)->middleware('auth');
+
+//User Route
+Route::get('users', Users::class)->middleware('auth')->name('users');
+// Route::get('users', Users::class)->middleware('auth');
