@@ -4,13 +4,16 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Spatie\Permission\Models\Role;
 
 class Users extends Component
 {
+    use WithPagination;
 
     //Component Properties
-    public $users, $name, $email, $user_id, $password, $password_confirmation, $details;
+    public $name, $email, $user_id, $password, $password_confirmation, $details;
+    private $users;
     public $isOpen = 0;
     public $selectedRole = 0;
     public $role;
@@ -20,7 +23,7 @@ class Users extends Component
         'name' => 'required',
         'email' => 'required|email',
         'password' => 'required|confirmed',
-        'role' => 'required'
+        'role' => 'required',
     ];
 
     /**
@@ -40,12 +43,12 @@ class Users extends Component
      */
     public function render()
     {
-        //Retrieve All Roles
+        //Retrieve All Roles;
         $roles = Role::pluck('name', 'id');
-        return view('livewire.users', compact('roles'));
-
-        // $this->users = User::all();
-        // return view('livewire.users');
+        return view('livewire.users', [
+            'roles' => $roles,
+            'users' => User::paginate(10),
+        ]);
     }
 
     /**
@@ -55,7 +58,8 @@ class Users extends Component
      */
     public function loadUsers()
     {
-        $this->users = User::all();
+        // $this->users = User::all();
+        $this->users = User::paginate(10); // Change the number '10' to your desired pagination limit
     }
 
     /**
