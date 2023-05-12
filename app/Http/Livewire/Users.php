@@ -37,4 +37,24 @@ class Users extends Component
         $this->email = '';
         $this->user_id = '';
     }
+
+    public function store()
+    {
+        $this->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
+        User::updateOrCreate(['id' => $this->user_id], [
+            'name' => $this->name,
+            'email' => $this->email,
+        ]);
+
+        session()->flash('message',
+            $this->user_id ? 'User Updated Successfully.' : 'User Created Successfully.');
+            $this->closeModal();
+            $this->resetInputFields()();
+    }
+
+    
 }
