@@ -56,5 +56,9 @@ class Users extends Component
             $this->resetInputFields()();
     }
 
-    
+    public function delete($id)
+    {
+        User::find($id)->delete();
+        session()->flash('message', 'User Deleted Successfully.');
+    }
 }
