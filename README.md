@@ -17,29 +17,8 @@
 
 ![Alt Text](./screenshots/AddUser.png)
 
-
-<!-- ## Learning Laravel
-
-
-## Laravel Sponsors
+![Alt Text](./screenshots/access.png)
 
 
-
-### Premium Partners
-
-
-## Contributing
-
-
-
-## Code of Conduct
-
-
-
-## Security Vulnerabilities
-
-
-
-## License -->
 
 
