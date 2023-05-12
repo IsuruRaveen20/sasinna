@@ -21,4 +21,14 @@ class Users extends Component
         $this->resetInputFields();
         $this->openModal();
     }
+
+    public function openModal()
+    {
+        $this->isOpen = true;
+    }
+
+    public function closeModal()
+    {
+        $this->isOpen = false;
+    }
 }
