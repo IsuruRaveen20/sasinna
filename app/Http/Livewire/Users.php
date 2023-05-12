@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Users extends Component
 {
+    
     public $users, $name, $email, $user_id, $password, $details;
     public $isOpen = 0;
 
