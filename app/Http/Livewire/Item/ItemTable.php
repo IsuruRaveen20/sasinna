@@ -9,7 +9,6 @@ use Livewire\WithPagination;
 class ItemTable extends Component
 {
     use WithPagination;
-
     public $search = '';
 
     public function resetSearch()

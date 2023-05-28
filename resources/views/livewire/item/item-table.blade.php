@@ -89,15 +89,18 @@
                 </div>
                 <!-- End of Item Table -->
 
-                <!-- Pagination Links -->
                 <div class="d-flex justify-content-center mt-3">
-                    {!! $items->links('pagination::bootstrap-5') !!}
+                    {{ $items->links('livewire.item.pagination-links') }}
                 </div>
+                <!-- Pagination Links -->
+                {{-- <div class="d-flex justify-content-center mt-3">
+                    {!! $items->links('pagination::bootstrap-5') !!}
+                </div> --}}
             </div>
         </div>
     </div>
 </section>
-@push('styles')
+{{-- @push('styles')
     <style>
         .suggestions {
             position: absolute;
@@ -120,4 +123,4 @@
             background-color: #020f1b;
         }
     </style>
-@endpush
+@endpush --}}
